@@ -1,0 +1,47 @@
+<div class="freelancers-container freelancers-list-layout margin-top-35">
+
+    <!--Freelancer -->
+    @forelse ($demande as $key=>$item)
+    <div class="freelancer">
+
+        <!-- Overview -->
+        <div class="freelancer-overview">
+            <div class="freelancer-overview-inner">
+
+                <!-- Bookmark Icon -->
+                <span class="bookmark-icon"></span>
+                <!-- Avatar -->
+                <div class="freelancer-avatar">
+                    <a href="single-freelancer-profile.html"><img src={{'/storage/'.$item->utilisateurs->photo}} alt="" width='100px' height='100px'></a>
+                </div>
+
+                <!-- Name -->
+                <div class="freelancer-name">
+                    <h4><a>{{ $item->titreDemande." (".$item->ville->nomVille.")" }} </a></h4>
+                    <span>{{ $item->utilisateurs->donners->niveauEtude }}</span>
+                    <!-- Rating -->
+                    <div class="freelancer-rating" >
+                        <div class="star-rating" data-rating='3' wire:ignore></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="freelancer-details">
+            <div class="freelancer-details-list">
+                <ul>
+                    <li>Location <strong><i class="icon-material-outline-location-on"></i>{{ $item->utilisateurs->ville }}</strong></li>
+                    <li> Age<strong>{{ $ages[$key] }} Ans</strong></li>
+                </ul>
+            </div>
+            <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">Visite Demande <i class="icon-material-outline-arrow-right-alt"></i></a>
+        </div>
+    </div>
+    @empty
+
+    @endforelse
+    <!-- Freelancer / End -->
+
+
+</div>
